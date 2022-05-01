@@ -40,13 +40,15 @@ myApp.get('/json',
     return res.send({ "message": process.env.MESSAGE_STYLE === "uppercase" ? message.toUpperCase() : message })
   })
 
-  myApp.get('/now',
-  (req, res, next) => {
-    req.time = new Date().toString()
-    next()
-  },
+const middleware = (req, res, next) => {
+  req.time = new Date().toString()
+  next()
+}
+
+myApp.get('/now',
+  middleware,
   (req, res) => {
-    res.send({time: req.time})
+    res.send({ time: req.time })
   })
 
 /******************************************************
