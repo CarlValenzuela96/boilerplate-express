@@ -45,7 +45,18 @@ const middleware = (req, res, next) => {
   next()
 }
 
-myApp.get('/now', function (req, res, next) { req.time = new Date().toString(); next(); }, function (req, res) { res.send({ time: req.time }) })
+myApp.get(
+  "/now",
+  (req, res, next) => {
+    req.time = new Date().toString();
+    next();
+  },
+  (req, res) => {
+    res.send({
+      time: req.time
+    });
+  }
+);
 
 myApp.get('/:word/echo', (req, res) => {
   res.send({ echo: req.params.word })
