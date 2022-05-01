@@ -52,6 +52,7 @@ myApp.get(
     next();
   },
   (req, res) => {
+    setTimeout(200)
     res.send({
       time: req.time
     });
