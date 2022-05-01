@@ -27,7 +27,7 @@ bGround.setupBackgroundApp(app, myApp, __dirname).listen(port, function(){
 });
 
 myApp.get('/', (req,res)=>{
-  res.send("Hello Express")
+  res.sendFile(__dirname + "/views/index.html")
 })
 
 /******************************************************
