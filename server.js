@@ -40,26 +40,7 @@ myApp.get('/json',
     return res.send({ "message": process.env.MESSAGE_STYLE === "uppercase" ? message.toUpperCase() : message })
   })
 
-const middleware = (req, res, next) => {
-  req.time = new Date().toString()
-  next()
-}
 
-const time = (req, res) => {
-  res.send({ time: req.time });
-}
-
-
-
-myApp.get("/now", middleware, (req, res, next) => {
-  console.log(req.time)
-  const timeOut = setTimeout(() => {
-    console.log("aaa")
-  }, 200)
-
-  timeOut
-  next()
-}, time);
 
 myApp.get('/:word/echo', (req, res) => {
   res.send({ echo: req.params.word })

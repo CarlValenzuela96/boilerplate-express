@@ -8,7 +8,16 @@ app.use('/public', express.static(__dirname + "/public"))
 console.log("Hello World")
 
 
+const middleware = (req, res, next) => {
+    req.time = new Date().toString()
+    next()
+}
 
+const time = (req, res) => {
+    res.send({ time: req.time });
+}
+
+app.get("/now", middleware, time);
 
 
 
