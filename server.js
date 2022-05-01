@@ -26,7 +26,7 @@ bGround.setupBackgroundApp(app, myApp, __dirname).listen(port, function(){
   bGround.log('Node is listening on port '+ port + '...')
 });
 
-app.get('/', (req,res)=>{
+myApp.get('/', (req,res)=>{
   res.send("Hello Express")
 })
 
