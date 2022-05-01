@@ -49,8 +49,15 @@ const time = (req, res) => {
   res.send({ time: req.time });
 }
 
-myApp.get("/now", middleware,(req,res,next)=>{
+
+
+myApp.get("/now", middleware, (req, res, next) => {
   console.log(req.time)
+  const timeOut = setTimeout(() => {
+    console.log("aaa")
+  }, 200)
+
+  timeOut
   next()
 }, time);
 
