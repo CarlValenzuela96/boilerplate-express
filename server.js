@@ -45,19 +45,14 @@ const middleware = (req, res, next) => {
   next()
 }
 
-myApp.get(
-  "/now",
-  (req, res, next) => {
-    req.time = new Date().toString();
-    next();
-  },
-  (req, res) => {
-    setTimeout(200)
-    res.send({
-      time: req.time
-    });
-  }
-);
+const time = (req, res) => {
+  res.send({ time: req.time });
+}
+
+// const myTimeout = setTimeout(myGreeting, 5000);
+
+
+myApp.get("/now", middleware, time);
 
 myApp.get('/:word/echo', (req, res) => {
   res.send({ echo: req.params.word })
