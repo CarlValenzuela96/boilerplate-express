@@ -54,7 +54,7 @@ myApp.get('/:word/echo', (req, res) => {
 })
 
 myApp.get('/name', (req, res) => {
-  res.send({ name: req.query.firstname + ' ' + req.query.lastname })
+  res.send({ name: req.query.first + ' ' + req.query.last })
 })
 
 /******************************************************
