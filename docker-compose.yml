@@ -43,6 +43,7 @@ services:
       VIRTUAL_HOST: ${DOMAIN}
       LETSENCRYPT_HOST: ${DOMAIN}
       LETSENCRYPT_EMAIL: ${LETSENCRYPT_EMAIL}
+      MESSAGE_STYLE: ${MESSAGE_STYLE}
       NODE_ENV: production
       PORT: ${APP_PORT}
     volumes:

@@ -31,7 +31,7 @@ myApp.get('/', (req,res)=>{
 })
 
 myApp.get('/json',(req,res)=>{
-  return res.send({"message": "Hello json"})
+  return res.send({"message": process.env.MESSAGE_STYLE})
 })
 
 /******************************************************
